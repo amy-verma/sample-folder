@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
   const [user, setUser] = useState([]);
   const [list, setList] = useState([]);
-
-  const Fetchdata = async () => {
+  const FetchData = async () => {
     try {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/users"
@@ -17,12 +15,11 @@ const App = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
-    Fetchdata();
+    FetchData();
   }, []);
 
-  const handleShowList = (ele) => {
+  const handlerlist = (ele) => {
     setList((prev) => {
       if (prev.some((prevEle) => prevEle.id === ele.id)) {
         return prev;
@@ -31,19 +28,23 @@ const App = () => {
       }
     });
   };
-
   return (
     <div>
       <ul>
-        {user.map((ele, id) => {
+        {user.slice(0, 5).map((ele, id) => {
           return (
-            <li key={id} onClick={() => handleShowList(ele)}>
+            <li key={ele.id} onClick={() => handlerlist(ele)}>
               {ele.name}
             </li>
           );
         })}
       </ul>
-      <div>{list.map((ele) => ele.name)}</div>
+
+      <ul>
+        {list.map((ele, id) => {
+          return <li key={ele.id}>{ele.name}</li>;
+        })}
+      </ul>
     </div>
   );
 };
