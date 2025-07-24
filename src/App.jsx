@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const App = () => {
   const [user, setUser] = useState([]);
-  const [handleList, setHandleList] = useState([]);
+  const [list, setList] = useState([]);
 
   const Fetchdata = async () => {
     try {
@@ -23,7 +23,7 @@ const App = () => {
   }, []);
 
   const handleShowList = (ele) => {
-    setHandleList((prev) => {
+    setList((prev) => {
       if (prev.some((prevEle) => prevEle.id === ele.id)) {
         return prev;
       } else {
@@ -43,13 +43,7 @@ const App = () => {
           );
         })}
       </ul>
-      <div>
-        <ul>
-          {handleList.map((ele) => {
-            return <li>{ele.name}</li>;
-          })}
-        </ul>
-      </div>
+      <div>{list.map((ele) => ele.name)}</div>
     </div>
   );
 };
