@@ -40,11 +40,11 @@ const App = () => {
         })}
       </ul>
 
-      <ul>
+      {/* <ul>
         {list.map((ele, id) => {
           return <li key={ele.id}>{ele.name}</li>;
         })}
-      </ul>
+      </ul> */}
     </div>
   );
 };
