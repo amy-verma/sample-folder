@@ -1,7 +1,7 @@
 import Filter from "./filter";
 
 const App = () => {
-  const name = "amit";
+  const name = "amiit";
   return (
     <div>
       <Filter name={name} />
