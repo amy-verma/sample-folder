@@ -1,54 +1,66 @@
-import { useEffect, useState } from "react";
+import Filter from "./filter";
 
 const App = () => {
-  const [user, setUser] = useState([]);
-  const [list, setList] = useState([]);
-  const FetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      const data = await response.json();
-      console.log(data);
-      setUser(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    FetchData();
-  }, []);
-
-  const handlerlist = (ele) => {
-    setList((prev) => {
-      if (prev.some((prevEle) => prevEle.id === ele.id)) {
-        return prev;
-      } else {
-        return [...prev, ele];
-      }
-    });
-  };
+  const name = "amit";
   return (
     <div>
-      <ul>
-        {user.slice(0, 5).map((ele, id) => {
-          return (
-            <li key={ele.id} onClick={() => handlerlist(ele)}>
-              {ele.name}
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* <ul>
-        {list.map((ele, id) => {
-          return <li key={ele.id}>{ele.name}</li>;
-        })}
-      </ul> */}
+      <Filter name={name} />
     </div>
   );
 };
+
 export default App;
+// import { useEffect, useState } from "react";
+
+// const App = () => {
+//   const [user, setUser] = useState([]);
+//   const [list, setList] = useState([]);
+//   const FetchData = async () => {
+//     try {
+//       const response = await fetch(
+//         "https://jsonplaceholder.typicode.com/users"
+//       );
+//       const data = await response.json();
+//       console.log(data);
+//       setUser(data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+//   useEffect(() => {
+//     FetchData();
+//   }, []);
+
+//   const handlerlist = (ele) => {
+//     setList((prev) => {
+//       if (prev.some((prevEle) => prevEle.id === ele.id)) {
+//         return prev;
+//       } else {
+//         return [...prev, ele];
+//       }
+//     });
+//   };
+//   return (
+//     <div>
+//       <ul>
+//         {user.slice(0, 5).map((ele, id) => {
+//           return (
+//             <li key={ele.id} onClick={() => handlerlist(ele)}>
+//               {ele.name}
+//             </li>
+//           );
+//         })}
+//       </ul>
+
+//       {/* <ul>
+//         {list.map((ele, id) => {
+//           return <li key={ele.id}>{ele.name}</li>;
+//         })}
+//       </ul> */}
+//     </div>
+//   );
+// };
+// export default App;
 
 // import Filter from "./filter";
 
