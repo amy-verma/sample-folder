@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 const App=()=>{
   const [loading,setLoading]=useState(true)
   useEffect(()=>{
-   setTimeout(()=>{
+  let timer= setTimeout(()=>{
     setLoading(false)
    },3000)
    return ()=>{
-    clearTimeout(loading)
+    clearTimeout(timer)
    }
   },[])
   return (<div>
