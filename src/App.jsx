@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 
-const App=()=>{
-  const [loading,setLoading]=useState(true)
-  useEffect(()=>{
-  let timer= setTimeout(()=>{
-    setLoading(false)
-   },3000)
-   return ()=>{
-    clearTimeout(timer)
-   }
-  },[])
-  return (<div>
-    {loading ? <p>Loading...</p>: <p>Loaded</p>}
-  </div>)
-}
+// const App=()=>{
+//   const [loading,setLoading]=useState(true)
+//   useEffect(()=>{
+//   let timer= setTimeout(()=>{
+//     setLoading(false)
+//    },3000)
+//    return ()=>{
+//     clearTimeout(timer)
+//    }
+//   },[])
+//   return (<div>
+//     {loading ? <p>Loading...</p>: <p>Loaded</p>}
+//   </div>)
+// }
 
-export default App;
+// export default App;
 
 
 // import { useEffect, useState } from "react";

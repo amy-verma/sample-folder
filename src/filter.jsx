@@ -1,12 +1,12 @@
-const Filter = ({ name }) => {
-  return (
-    <div>
-      <h2>{name}</h2>
-    </div>
-  );
-};
+// const Filter = ({ name }) => {
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//     </div>
+//   );
+// };
 
-export default Filter;
+// export default Filter;
 
 // import { useState } from "react";
 // import { useEffect } from "react";
