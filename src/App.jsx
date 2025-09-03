@@ -1,19 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const App=()=>{
+  const [user,setUsers]=useState([])
+  const [handleinput,setInput]=useState("")
+
+
   const fetchData=async()=>{
     try{
       const response=await fetch("https://jsonplaceholder.typicode.com/users");
       const data=await response.json();
       console.log(data);
+      setUsers(data)
     }catch(error){
       console.log(error);
     }
   }
-  useState(()=>{
+
+
+  useEffect(()=>{
     fetchData()
   },[])
+
+   const handleOnChange=(e)=>{
+    setInput(e.target.value)
+  }
+
+  const filterData=user.filter((ele)=>{
+   return ele.name.toLowerCase().includes(handleinput.toLowerCase())
+  })
+
+ 
   return (<>
+  <input placeholder="Enter text" type="text" value={handleinput} onChange={handleOnChange}/>
+  <ul>
+    {
+      filterData.map((ele)=>{
+        return <li key={ele.id}>{ele.name} </li>
+      })
+    }
+  </ul>
   </>)
 }
 export default App
